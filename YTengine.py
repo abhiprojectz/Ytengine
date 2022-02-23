@@ -126,12 +126,14 @@ def getRandomImg():
             # print(os.path.join(file))
     return files
 
-def generateVedio(file_name):
+def generateVedio():
     dest = os.path.join(dir_path, "outputs")
     images_list = getRandomImg()
 
     clips = [ImageClip(m).set_duration(5)
             for m in images_list]
+
+    file_name = id_generator()
 
     ms = ['music1.mp3', 'music2.mp3', 'music3.mp3', 'music4.mp3', 'music5.mp3', 'music6.mp3']
     music = os.path.join(dir_path, random.choice(ms))
@@ -144,9 +146,9 @@ def generateVedio(file_name):
 
 def bulkGenerate():
     fs = ["vid_1", "vid_2", "vid_3", "vid_4", "vid_5", "vid_6", "vid_7", "vid_8"]
-    for i in range(8):
+    for i in range(30):
         downloadImg()
-        generateVedio(fs[i])
+        generateVedio()
     print("Short generted!")
 
 
